@@ -12,7 +12,7 @@ import {Component} from '@angular/core';
     <button [style.background-color] = "isActive ? 'red': 'blue'" (click)="changeMessage()">Button 2</button>
     <h1>{{clickMessage}}</h1>
     <br/>
-    <input type="text" [(ngModel)]="name"/>`,
+    <input type="text" [(ngModel)]="name" (ngModelChange)="setUpperCase($event)"/>`,
 })
 
 export class MyComponent {
@@ -32,5 +32,8 @@ export class MyComponent {
 
    changeColor() {
      this.isActive = !this.isActive;
+   }
+   setUpperCase(e) {
+     this.name = e.toUpperCase();
    }
 }
