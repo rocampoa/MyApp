@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { MyComponent} from './my-component.component';
-import {TodosComponent} from "./todos.components";
+import { AppComponent } from './Components/app.component';
+import { MyComponent} from './Components/my-component.component';
+import {TodosComponent} from "./Components/todos.components";
 
 @NgModule({
   declarations: [
