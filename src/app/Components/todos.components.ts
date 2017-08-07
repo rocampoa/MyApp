@@ -13,7 +13,22 @@ import {Post} from './post';
           <label>Title</label>
           <input type="text" class="form-control" [(ngModel)]="model.title" name="title" required>
           {{model.title}}
-        </div>  
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select class="form-control" [(ngModel)]="category"required>
+            <option *ngFor="let category of categories">{{category}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Body</label>
+          <textarea class="form-control" [(ngModel)]="body"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Author</label>
+          <input type="text" class="form-control" [(ngModel)]="author" required>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
       </form>  
     </div>
       <h1>My Todos {{newTodo}}</h1>
