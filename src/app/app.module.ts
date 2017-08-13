@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule, NgForm} from '@angular/forms';
 import { AppComponent } from './Components/app.component';
 import { MyComponent} from './Components/my-component.component';
 import {TodosComponent} from './Components/todos.components';
-import {FormaComponent} from './Components/foma.component';
+import {FormaComponent} from './Components/forma.component';
   ;
 
 @NgModule({
@@ -18,7 +18,8 @@ import {FormaComponent} from './Components/foma.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgForm
   ],
   providers: [],
   bootstrap: [AppComponent]
