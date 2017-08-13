@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {TodoService} from '../services/todo.service';
 import {Post} from './post';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+
 
 
 @Component({
@@ -8,25 +10,25 @@ import {Post} from './post';
   template : `
     <div class="container">
       <h1>Add Post</h1>
-      <form>
+      <form #forma="ngForm">
         <div class="form-group">
           <label>Title</label>
-          <input type="text" class="form-control" [(ngModel)]="model.title" name="title" required>
-          {{model.title}}
+          <input type="text" class="form-control" [(ngModel)]="model.title" name="title" ngControl="title" #title="ngModel" required>
+          <div [hidden]="title.valid || title.pristine" class="alert alert-danger">Title is required </div>
         </div>
         <div class="form-group">
           <label>Category</label>
-          <select class="form-control" [(ngModel)]="category"required>
+          <select class="form-control" [(ngModel)]="model.category" ngControl="category" name="category" required>
             <option *ngFor="let category of categories">{{category}}</option>
           </select>
         </div>
         <div class="form-group">
           <label>Body</label>
-          <textarea class="form-control" [(ngModel)]="body"></textarea>
+          <textarea class="form-control" [(ngModel)]="model.body" ngControl="body" name="body"></textarea>
         </div>
         <div class="form-group">
           <label>Author</label>
-          <input type="text" class="form-control" [(ngModel)]="author" required>
+          <input type="text" class="form-control" [(ngModel)]="model.author"  name="author" ngControl="author" required>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>  
@@ -67,7 +69,16 @@ import {Post} from './post';
     </ul>
     <button class="btn btn-default" (click)="resetTodos()">Reset</button>
   `,
-  providers : [TodoService]
+  providers : [TodoService],
+  styles: [`
+    .ng-valid[required] {
+      border: 1px solid #42A948; /*green*/
+    }
+    
+    .ng-invalid {
+      border: 1px solid #A94442; /*red*/
+    }
+  `]
 })
 
 export class TodosComponent{
@@ -82,10 +93,15 @@ export class TodosComponent{
   categories = ['Technology', 'Business', 'Entertaiment'];
   model = new Post(1, 'Post one', this.categories[0], 'This is the boy', 'Rafael Ocampo');
   submited  = false;
+  username : FormControl;
+  form : FormGroup;
+  email : FormControl;
+
   constructor(private todoService : TodoService) {
     this.todos = todoService.getTodos();
     this.name = 'Rafael';
     this.arreglo = ['Lavar los platos', 'Recoger los niños', 'Comer la cena'];
+    this.username = new FormControl("", Validators.compose([Validators.required, Validators.minLength(3)]));
     this.promise = new Promise(function(resolve, reject){
       setTimeout(function() {
         resolve('Hi, i am promise');
