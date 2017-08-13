@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {states} from '../model/data-model';
+import {EmailValidator} from "../validators/emailValidator";
 
 @Component({
   selector : 'my-form',
@@ -20,6 +21,13 @@ import {states} from '../model/data-model';
         <div class="form-group">
           <label>Email</label>
           <input type="text" class="form-control" formControlName="email"/>
+          <div *ngIf="email.dirty && !email.valid">
+            se muestra
+            <div class="alert alert-danger" *ngIf="email.hasError('required')"> Email required</div>
+            <div class="alert alert-danger" *ngIf="email.hasError('minlength')"> Email require minimo 3 caracteres</div>
+            <div class="alert alert-danger" *ngIf="email.hasError('invalidEmail')"> Invalid Email</div>
+
+          </div>
         </div>
         <div class="form-group">
           <label>State</label>
@@ -45,7 +53,7 @@ export class FormaComponent {
   constructor() {
      this.username = new FormControl('', Validators.compose([Validators.required, Validators.minLength(3),
                                                                        Validators.maxLength(10)]));
-     this.email = new FormControl('', Validators.compose([Validators.required, Validators.email, Validators.minLength(10)]));
+     this.email = new FormControl('', Validators.compose([Validators.required, EmailValidator.invalidEmail, Validators.minLength(5)]));
      this.state = new FormControl('');
      this.form = new FormGroup({
        username : this.username,
