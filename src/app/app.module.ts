@@ -1,20 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './Components/app.component';
 import { MyComponent} from './Components/my-component.component';
-import {TodosComponent} from "./Components/todos.components";
+import {TodosComponent} from './Components/todos.components';
+import {FormaComponent} from './Components/foma.component';
+  ;
 
 @NgModule({
   declarations: [
     AppComponent,
     MyComponent,
-    TodosComponent
+    TodosComponent,
+    FormaComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,7 @@ import {Tire} from "../services/tires.services";
   selector: 'app-root',
   template: `<h1> Mi Primera Aplicaci&oacute;n Angular 2 </h1>
              <my-component></my-component>
+             <my-form></my-form>
              <todos></todos>
             <br/>`,
   providers : [Car, Body, Engine, Tire]
