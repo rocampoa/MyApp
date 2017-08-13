@@ -18,8 +18,7 @@ import {FormaComponent} from './Components/forma.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
-    NgForm
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
