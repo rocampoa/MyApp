@@ -4,33 +4,23 @@ import {Car} from "../services/car.service";
 import {Engine} from "../services/engine.service";
 import {Body} from "../services/body.service";
 import {Tire} from "../services/tires.services";
-import {RouterModule} from "@angular/router";
 
 
 @Component({
   selector: 'app-root',
   template: `<h1> Mi Primera Aplicaci&oacute;n Angular 2 </h1>
+             <nav>
+               <a routerLink="photos">Fotos</a>
+               <a routerLink="videos">Videos</a>
+               <a routerLink="albums">Albums</a>
+             </nav>
+             <router-outlet> </router-outlet>
              <my-component></my-component>
              <my-form></my-form>
              <todos></todos>
             <br/>`,
   providers : [Car, Body, Engine, Tire]
 })
-const appRoutes = [{ path: 'photos', component: CrisisListComponent },
-  { path: 'hero/:id',      component: HeroDetailComponent },
-  {
-    path: 'heroes',
-    component: HeroListComponent,
-    data: { title: 'Heroes List' }
-  },
-  { path: '',
-    redirectTo: '/heroes',
-    pathMatch: 'full'
-  },]
-
-@NgModule({
-  imports : [RouterModule.forRoot(appRoutes)]
-});
 
 export class AppComponent {
   color : string;

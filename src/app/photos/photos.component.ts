@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 @Component({
   selector : 'photos',
   template: `
-    <h1> PHOTOS </h1>
+    <h1> Componente de PHOTOS </h1>
   `
 })
 
