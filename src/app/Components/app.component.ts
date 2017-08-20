@@ -4,6 +4,7 @@ import {Car} from '../services/car.service';
 import {Engine} from '../services/engine.service';
 import {Body} from '../services/body.service';
 import {Tire} from '../services/tires.services';
+import {PostService} from '../services/post.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ import {Tire} from '../services/tires.services';
              <my-form></my-form>
              <todos></todos>
             <br/>`,
-  providers : [Car, Body, Engine, Tire]
+  providers : [Car, Body, Engine, Tire, PostService]
 })
 
 export class AppComponent {
