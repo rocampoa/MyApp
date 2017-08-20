@@ -1,9 +1,9 @@
 import {Component, Inject, NgModule} from '@angular/core';
 import {TodosComponent} from './todos.components';
-import {Car} from "../services/car.service";
-import {Engine} from "../services/engine.service";
-import {Body} from "../services/body.service";
-import {Tire} from "../services/tires.services";
+import {Car} from '../services/car.service';
+import {Engine} from '../services/engine.service';
+import {Body} from '../services/body.service';
+import {Tire} from '../services/tires.services';
 
 
 @Component({
@@ -15,6 +15,7 @@ import {Tire} from "../services/tires.services";
                <a routerLink="albums">Albums</a>
              </nav>
              <router-outlet> </router-outlet>
+             <post-component></post-component>
              <my-component></my-component>
              <my-form></my-form>
              <todos></todos>

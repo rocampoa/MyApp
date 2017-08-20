@@ -11,6 +11,8 @@ import {VideoComponent} from './video/video.component';
 import {AlbumsComponent} from './albums/albums.component';
 import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from './albums/pagenotfound.component';
+import {HttpClientModule} from '@angular/common/http';
+import {PostComponent} from "./Components/post.component";
 
 const appRoutes: Routes = [{ path: 'photos', component: PhotosComponent },
                    { path: 'videos', component: VideoComponent },
@@ -29,13 +31,15 @@ const appRoutes: Routes = [{ path: 'photos', component: PhotosComponent },
     PhotosComponent,
     AlbumsComponent,
     VideoComponent,
+    PostComponent,
     PageNotFoundComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
